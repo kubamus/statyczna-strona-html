@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./kategorie.css" />
+    <script isDeeper="true" src="../global.js" defer></script>
+    <title>Polski Związek Wędkarski - Dolnośląśkie</title>
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+
+  <body>
+    <div id="navContainer"></div>
+    <main>
+      <h1>Wybrana kategoria: UBRANIA</h1>
+      <select id="kategoria" required title="wybierz kategorie">
+        <option value="" selected disabled>
+          ----------Wybierz podkategorie----------
+        </option>
+        <option value="1">spodnie</option>
+        <option value="2">rękawice</option>
+        <option value="3">kurtki</option>
+      </select>
+      <div id="content"></div>
+    </main>
+    <footer>&copy;2024 Polski związek wędkarski</footer>
+
+    <script>
+      const selectMenu = document.getElementById("kategoria");
+      selectMenu.addEventListener("change", (e) => {
+        const category = Number(e.target.value);
+        if (![1, 2, 3].includes(category)) return;
+        const contentData = {
+          1: {
+            nazwa: "Spodnie wędkarskie",
+            opis: "Spodnie wędkarskie to rodzaj spodni, które są przystosowane do warunków panujących nad wodą. Spodnie wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Spodnie wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Spodnie wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Spodnie wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni.",
+            sklepy: [
+              {
+                path: "https://www.sklep-mietus.pl/130-spodnie-wedkarskie",
+                name: "sklep-mietus.pl",
+              },
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Ubrania_Odziez_Spodnie-762.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://pleciona.pl/spodnie-wedkarskie",
+                name: "pleciona.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/ubrania/spodnie/1.jpg",
+              "./zdj/ubrania/spodnie/2.jpg",
+              "./zdj/ubrania/spodnie/3.jpg",
+            ],
+          },
+          2: {
+            nazwa: "Rękawice wędkarskie",
+            opis: "Rękawice wędkarskie to rodzaj rękawic, które są przystosowane do warunków panujących nad wodą. Rękawice wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Rękawice wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Rękawice wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Rękawice wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni.",
+            sklepy: [
+              {
+                path: "https://www.fishingstore.pl/pol_m_Odziez_Rekawiczki-890.html",
+                name: "fishingstore.pl",
+              },
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Podlodowe_Rekawiczki-wedkarskie-46473.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://www.sklep-mietus.pl/267-rekawice-wedkarskie",
+                name: "sklep-mietus.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/ubrania/rekawice/1.jpg",
+              "./zdj/ubrania/rekawice/2.jpg",
+              "./zdj/ubrania/rekawice/3.jpg",
+            ],
+          },
+          3: {
+            nazwa: "Kurtki wędkarskie",
+            opis: "Kurtki wędkarskie to rodzaj kurtek, które są przystosowane do warunków panujących nad wodą. Kurtki wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Kurtki wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Kurtki wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni. Kurtki wędkarskie są zazwyczaj wodoodporne i posiadają wiele kieszeni.",
+            sklepy: [
+              {
+                path: "https://pleciona.pl/kurtki-wedkarskie",
+                name: "pleciona.pl",
+              },
+              {
+                path: "https://www.sklep-mietus.pl/127-kurtki-wedkarskie",
+                name: "sklep-mietus.pl",
+              },
+              {
+                path: "https://www.decathlon.pl/sporty/wedkarstwo/kurtki-wedkarskie",
+                name: "decathlon.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/ubrania/kurtki/1.jpg",
+              "./zdj/ubrania/kurtki/2.jpg",
+              "./zdj/ubrania/kurtki/3.jpg",
+            ],
+          },
+        };
+        const content = document.getElementById("content");
+        content.innerHTML = `
+        <h2>${contentData[category].nazwa}</h2>
+        <p>${contentData[category].opis}</p>
+        <h3>Sklepy</h3>
+        <ul>
+          ${contentData[category].sklepy
+            .map(
+              (sklep) =>
+                `<li><a href="${sklep.path}" target="_blank">${sklep.name}</a></li>`
+            )
+            .join("")}
+        </ul>
+        <h3>Zdjęcia</h3>
+        <div class="imageGalery">
+          ${contentData[category].zdjecia
+            .map(
+              (zdjecie) =>
+                `<a href="${zdjecie}" target="_blank"><img src="${zdjecie}" alt="zdjecie" width="200" height="200" /></a>`
+            )
+            .join("")}
+        `;
+      });
+    </script>
+  </body>
+</html>

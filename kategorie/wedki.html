@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./kategorie.css" />
+    <script isDeeper="true" src="../global.js" defer></script>
+    <title>Polski Związek Wędkarski - Dolnośląśkie</title>
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+
+  <body>
+    <div id="navContainer"></div>
+    <main>
+      <h1>Wybrana kategoria: WĘDKI</h1>
+      <select id="kategoria" required title="wybierz kategorie">
+        <option value="" selected disabled>
+          ----------Wybierz podkategorie----------
+        </option>
+        <option value="1">spinningowe</option>
+        <option value="2">gruntowe</option>
+        <option value="3">spławikowe</option>
+      </select>
+      <div id="content"></div>
+    </main>
+    <footer>&copy;2024 Polski związek wędkarski</footer>
+
+    <script>
+      const selectMenu = document.getElementById("kategoria");
+      selectMenu.addEventListener("change", (e) => {
+        const category = Number(e.target.value);
+        if (![1, 2, 3].includes(category)) return;
+        const contentData = {
+          1: {
+            nazwa: "Wędki spinningowe",
+            opis: "Wedki spinningowe to rodzaj wedek, ktore sluza do połowu ryb metodą spinningową. Wędki spinningowe są zazwyczaj krótsze i bardziej elastyczne niż wędki gruntowe. Wędki spinningowe są zazwyczaj krótsze i bardziej elastyczne niż wędki gruntowe. Wędki spinningowe są zazwyczaj krótsze i bardziej elastyczne niż wędki gruntowe. Wędki spinningowe są zazwyczaj krótsze i bardziej elastyczne niż wędki gruntowe.",
+            sklepy: [
+              {
+                path: "https://pleciona.pl/pl/c/Wedki-spinningowe/10",
+                name: "pleciona.pl",
+              },
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Spinningowe_Wedki-45368.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://www.fishingstore.pl/pol_m_Wedkarstwo-Spinningowe_Wedki_Wedki-spinningowe-164.html",
+                name: "fishingstore.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/wedki/spinningowe/1.jpg",
+              "./zdj/wedki/spinningowe/2.jpg",
+              "./zdj/wedki/spinningowe/3.jpg",
+            ],
+          },
+          2: {
+            nazwa: "Wędki gruntowe",
+            opis: "Wedki gruntowe to rodzaj wedek, ktore sluza do połowu ryb metodą gruntową. Wędki gruntowe są zazwyczaj dłuższe i mniej elastyczne niż wędki spinningowe. Wędki gruntowe są zazwyczaj dłuższe i mniej elastyczne niż wędki spinningowe. Wędki gruntowe są zazwyczaj dłuższe i mniej elastyczne niż wędki spinningowe. Wędki gruntowe są zazwyczaj dłuższe i mniej elastyczne niż wędki spinningowe.",
+            sklepy: [
+              {
+                path: "https://sklep-wedkarski.waw.pl/category/wedki-gruntowe",
+                name: "sklep-wedkarski.waw.pl",
+              },
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Gruntowe_Wedki-46626.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://www.sklep-mietus.pl/59-wedki-gruntowe",
+                name: "sklep-mietus.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/wedki/gruntowe/1.jpg",
+              "./zdj/wedki/gruntowe/2.jpg",
+              "./zdj/wedki/gruntowe/3.jpg",
+            ],
+          },
+          3: {
+            nazwa: "Wędki spławikowe",
+            opis: "Wedki spławikowe to rodzaj wedek, ktore sluza do połowu ryb metodą spławikową. Wędki spławikowe są zazwyczaj dłuższe i bardziej elastyczne niż wędki gruntowe. Wędki spławikowe są zazwyczaj dłuższe i bardziej elastyczne niż wędki gruntowe. Wędki spławikowe są zazwyczaj dłuższe i bardziej elastyczne niż wędki gruntowe. Wędki spławikowe są zazwyczaj dłuższe i bardziej elastyczne niż wędki gruntowe.",
+            sklepy: [
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Splawikowe_Wedki-45003.html",
+                name: "sklepwedkarski.p",
+              },
+              {
+                path: "https://sklep-wedkarski.waw.pl/category/wedki-splawikowe",
+                name: "sklep-wedkarski.waw.pl",
+              },
+              {
+                path: "https://sklepdrapieznik.pl/16-splawikowe-teleskopowe",
+                name: "sklepdrapieznik.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/wedki/splawikowe/1.jpg",
+              "./zdj/wedki/splawikowe/2.jpg",
+              "./zdj/wedki/splawikowe/3.jpg",
+            ],
+          },
+        };
+        const content = document.getElementById("content");
+        content.innerHTML = `
+        <h2>${contentData[category].nazwa}</h2>
+        <p>${contentData[category].opis}</p>
+        <h3>Sklepy</h3>
+        <ul>
+          ${contentData[category].sklepy
+            .map(
+              (sklep) =>
+                `<li><a href="${sklep.path}" target="_blank">${sklep.name}</a></li>`
+            )
+            .join("")}
+        </ul>
+        <h3>Zdjęcia</h3>
+        <div class="imageGalery">
+          ${contentData[category].zdjecia
+            .map(
+              (zdjecie) =>
+                `<a href="${zdjecie}" target="_blank"><img src="${zdjecie}" alt="zdjecie" width="200" height="200" /></a>`
+            )
+            .join("")}
+        `;
+      });
+    </script>
+  </body>
+</html>

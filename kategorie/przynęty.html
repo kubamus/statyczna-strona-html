@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./kategorie.css" />
+    <script isDeeper="true" src="../global.js" defer></script>
+    <title>Polski Związek Wędkarski - Dolnośląśkie</title>
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+
+  <body>
+    <div id="navContainer"></div>
+    <main>
+      <h1>Wybrana kategoria: PRZYNETY</h1>
+      <select id="kategoria" required title="wybierz kategorie">
+        <option value="" selected disabled>
+          ----------Wybierz podkategorie----------
+        </option>
+        <option value="1">Dżdżownice</option>
+        <option value="2">Woblery</option>
+        <option value="3">Blachy</option>
+      </select>
+      <div id="content"></div>
+    </main>
+    <footer>&copy;2024 Polski związek wędkarski</footer>
+
+    <script>
+      const selectMenu = document.getElementById("kategoria");
+      selectMenu.addEventListener("change", (e) => {
+        const category = Number(e.target.value);
+        if (![1, 2, 3].includes(category)) return;
+        const contentData = {
+          1: {
+            nazwa: "Dżdżownice",
+            opis: "Dżdżownice są często używane jako przynęty awaryjne. Wybieraj te z żyznych gleb, o intensywnym czerwonym kolorze. Są skuteczne w połowach różnych gatunków ryb.",
+            sklepy: [
+              {
+                path: "https://dzdzownice.eu/przynety-wedkarskie-c-3.html",
+                name: "dzdzownice.eu",
+              },
+              {
+                path: "https://robaki.com.pl/czerwone-robaki/",
+                name: "robaki.com.pl",
+              },
+              {
+                path: "https://sprzetwedkarskirs.pl/sztuczna-przyneta-york-dzdzownice-psyrc/pQBC0034?variant=29999",
+                name: "sprzetwedkarskirs.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/przynety/dzdzownice/1.jpg",
+              "./zdj/przynety/dzdzownice/2.jpg",
+              "./zdj/przynety/dzdzownice/3.jpg",
+            ],
+          },
+          2: {
+            nazwa: "Woblery",
+            opis: "Woblery to przynęty, które naśladują ruchy ryb. Są skuteczne w połowach drapieżników. Woblery są dostępne w wielu kształtach, kolorach i rozmiarach.",
+            sklepy: [
+              {
+                path: "https://www.wedkarski.com/59-przynety-sztuczne-woblery",
+                name: "wedkarski.com",
+              },
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Przynety-sztuczne_Woblery-48659.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://maszbranie.pl/550-woblery?page=13",
+                name: "maszbranie.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/przynety/woblery/1.jpg",
+              "./zdj/przynety/woblery/2.jpg",
+              "./zdj/przynety/woblery/3.jpg",
+            ],
+          },
+          3: {
+            nazwa: "Blachy",
+            opis: "Blachy to przynęty, które naśladują ruchy ryb. Są skuteczne w połowach drapieżników. Blachy są dostępne w wielu kształtach, kolorach i rozmiarach.",
+            sklepy: [
+              {
+                path: "https://sklep-wedkarski.waw.pl/category/blachy",
+                name: "sklep-wedkarski.waw.pl",
+              },
+              {
+                path: "https://ekspert-sklep.pl/pl/c/Przynety-spinningowe-gumy%2C-blachy/1793",
+                name: "ekspert-sklep.pl",
+              },
+              {
+                path: "https://iwedkarski.pl/Przynety-sztuczne-i-glowki-jig/Blachy/5/full/4",
+                name: "iwedkarski.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/przynety/blachy/1.jpg",
+              "./zdj/przynety/blachy/2.jpg",
+              "./zdj/przynety/blachy/3.jpg",
+            ],
+          },
+        };
+        const content = document.getElementById("content");
+        content.innerHTML = `
+        <h2>${contentData[category].nazwa}</h2>
+        <p>${contentData[category].opis}</p>
+        <h3>Sklepy</h3>
+        <ul>
+          ${contentData[category].sklepy
+            .map(
+              (sklep) =>
+                `<li><a href="${sklep.path}" target="_blank">${sklep.name}</a></li>`
+            )
+            .join("")}
+        </ul>
+        <h3>Zdjęcia</h3>
+        <div class="imageGalery">
+          ${contentData[category].zdjecia
+            .map(
+              (zdjecie) =>
+                `<a href="${zdjecie}" target="_blank"><img src="${zdjecie}" alt="zdjecie" width="200" height="200" /></a>`
+            )
+            .join("")}
+        `;
+      });
+    </script>
+  </body>
+</html>

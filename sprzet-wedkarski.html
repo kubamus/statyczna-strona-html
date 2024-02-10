@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sprzet-wedkarski.css" />
+    <script src="./global.js" defer></script>
+    <title>Polski Związek Wędkarski - Dolnośląśkie</title>
+    <link rel="stylesheet" href="./global.css" />
+  </head>
+
+  <body>
+    <div id="navContainer"></div>
+    <main>
+      <h1>Sprzęt wędkarski</h1>
+      <h2>Kategorie</h2>
+      <select id="select" required>
+        <option value="" selected disabled>
+          ----------Wybierz kategorie----------
+        </option>
+        <option value="wedki.html">Wędki</option>
+        <option value="przynęty.html">Przynęty</option>
+        <option value="ubrania.html">Ubrania</option>
+      </select>
+      <button id="categoryButton" class="button">Przejdź do kategorii</button>
+    </main>
+    <footer>&copy;2024 Polski związek wędkarski</footer>
+    <script>
+      const categoryButton = document.getElementById("categoryButton");
+      const select = document.getElementById("select");
+      categoryButton.addEventListener("click", () => {
+        const selected = select.value;
+        if (selected) {
+          window.location.href = `./kategorie/${selected}`;
+        }
+      });
+    </script>
+  </body>
+</html>

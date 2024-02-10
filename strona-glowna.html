@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="strona-glowna.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <script src="./global.js" defer></script>
+    <title>Polski Związek Wędkarski - Dolnośląśkie</title>
+  </head>
+  <body>
+    <div id="navContainer"></div>
+    <main>
+      <h1 class="title">Strona główna</h1>
+      <br />
+      <div>
+        <h3 class="subtitle">Powiaty</h3>
+        <div>
+          Powiat Wrocławski <br />
+          <select title="wybierz powiat we wrocławiu" id="powiat-wroc" required>
+            <option value="" selected disabled>
+              ----------Wybierz koło----------
+            </option>
+            <option value="wroc-1">Koło wędkarskie 122 Astra</option>
+            <option value="wroc-2">Koło wędkarskie Ciernik Bolesławiec</option>
+            <option value="wroc-3">Koło wędkarskie, Koło nr 41</option>
+            <option value="wroc-4">Wędkarskie Centrum Krokodyl</option>
+          </select>
+          <button id="powiat-wroc-button" class="button">
+            Przejdź do okręgu
+          </button>
+        </div>
+        <div>
+          Powiat Wałbrzyski <br />
+          <select title="wybierz koło w wałbrzychu" id="powiat-wal" required>
+            <option value="" selected disabled>
+              ----------Wybierz koło----------
+            </option>
+            <option value="wal-1">
+              Okręg Polskiego Związku Wedkarskiego W Wałbrzychu
+            </option>
+            <option value="wal-2">Koło Wałbrzych Lokomotywa</option>
+            <option value="wal-3">Koło Wałbrzych THOREZ</option>
+            <option value="wal-4">Koło Wałbrzych Zak.Koksownicze</option>
+          </select>
+          <button id="powiat-wal-button" class="button">
+            Przejdź do okręgu
+          </button>
+        </div>
+      </div>
+      <div>
+        <h3 class="subtitle">Sprzęt wędkarski</h3>
+        <a href="./sprzet-wedkarski.html" class="button"
+          >Przejdź do podstrony</a
+        >
+        <div class="imageGalery">
+          <a
+            href="./sprzet-wedkarski-zdjecia/wedka-teleskopowa-4-2-metra.jpg"
+            target="_blank"
+            ><img
+              alt="wedka 4.2m"
+              class="zdj"
+              src="./sprzet-wedkarski-zdjecia/wedka-teleskopowa-4-2-metra.jpg"
+              title="wedka teleskopowa 4.2m"
+          /></a>
+          <a
+            href="./sprzet-wedkarski-zdjecia/wedka-teleskopowa-krotka.jpg"
+            target="_blank"
+            ><img
+              alt="krotka wedka teleskopowa"
+              class="zdj"
+              src="./sprzet-wedkarski-zdjecia/wedka-teleskopowa-krotka.jpg"
+              title="krotka wedka teleskopowa"
+          /></a>
+
+          <a
+            href="./sprzet-wedkarski-zdjecia/tobra-wedkarska.jpg"
+            target="_blank"
+            ><img
+              alt="torba"
+              class="zdj"
+              src="./sprzet-wedkarski-zdjecia/tobra-wedkarska.jpg"
+              title="torba wedkarska"
+          /></a>
+          <a
+            href="./sprzet-wedkarski-zdjecia/zestaw-przynent.jpg"
+            target="_blank"
+            ><img
+              alt="zestaw przynent"
+              class="zdj"
+              src="./sprzet-wedkarski-zdjecia/zestaw-przynent.jpg"
+              title="zestawy przynent"
+          /></a>
+        </div>
+      </div>
+    </main>
+    <footer>&copy;2024 Polski związek wędkarski</footer>
+    <script>
+      // Powiat Wrocławski
+      const wrocButton = document.getElementById("powiat-wroc-button");
+      const wrocSelect = document.getElementById("powiat-wroc");
+      wrocButton.addEventListener("click", () => {
+        const selected = wrocSelect.value;
+        if (selected) {
+          window.location.href = `./powiaty/${selected}.html`;
+        }
+      });
+      // Powiat Wałbrzyski
+      const walButton = document.getElementById("powiat-wal-button");
+      const walSelect = document.getElementById("powiat-wal");
+      walButton.addEventListener("click", () => {
+        const selected = walSelect.value;
+        if (selected) {
+          window.location.href = `./powiaty/${selected}.html`;
+        }
+      });
+    </script>
+  </body>
+</html>

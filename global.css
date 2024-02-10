@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+html {
+  color-scheme: dark;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #141414;
+}
+select {
+  font-size: 1rem;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #141414;
+  color: #fff;
+}
+option:disabled {
+  color: #ccc;
+}
+.button {
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+.button:active {
+  background-color: #004380;
+  transform: translateY(3px);
+}
+
+.imageGalery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  border-radius: 6px;
+}
+.imageGalery a {
+  width: 90px;
+  height: 90px;
+}
+.imageGalery img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+.imageGalery img:hover {
+  filter: brightness(0.7);
+}
