@@ -118,6 +118,8 @@ if (navContainer) {
             <a href="${homePath}powiaty/wroc-2.html">Koło wędkarskie Ciernik Bolesławiec</a>
             <a href="${homePath}powiaty/wroc-3.html">Koło wędkarskie, Koło nr 41</a>
             <a href="${homePath}powiaty/wroc-4.html">Wędkarskie Centrum Krokodyl</a>
+            <a href="${homePath}powiaty/wroc-5.html">Koło PZW nr 109 REKIN</a>
+            <a href="${homePath}powiaty/wroc-6.html">Koło PZW nr 116 KAPITAN</a>
           </div>
         </div>
         <div class="dropdown">
