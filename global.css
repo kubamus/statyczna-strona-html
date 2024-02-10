@@ -60,3 +60,25 @@ option:disabled {
 .imageGalery img:hover {
   filter: brightness(0.7);
 }
+.imageGaleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  background-color: #101010;
+  width: 302px;
+  padding: 15px;
+}
+
+.imageGaleryGrid a {
+  width: 90px;
+  height: 90px;
+}
+.imageGaleryGrid img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+.imageGaleryGrid img:hover {
+  filter: brightness(0.7);
+}
