@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./kategorie.css" />
+    <script isDeeper="true" src="../global.js" defer></script>
+    <title>Polski Związek Wędkarski - Dolnośląśkie</title>
+    <link rel="stylesheet" href="../global.css" />
+  </head>
+
+  <body>
+    <div id="navContainer"></div>
+    <main>
+      <h1>Wybrana kategoria: KOŁOWROTKI</h1>
+      <select id="kategoria" required title="wybierz kategorie">
+        <option value="" selected disabled>
+          ----------Wybierz podkategorie----------
+        </option>
+        <option value="1">Z przednim hamulcem</option>
+        <option value="2">Z tylnym hamulcem</option>
+        <option value="3">Z wolnym biegiem</option>
+      </select>
+      <div id="content"></div>
+    </main>
+    <footer>&copy;2024 Polski związek wędkarski</footer>
+
+    <script>
+      const selectMenu = document.getElementById("kategoria");
+      selectMenu.addEventListener("change", (e) => {
+        const category = Number(e.target.value);
+        if (![1, 2, 3].includes(category)) return;
+        const contentData = {
+          1: {
+            nazwa: "Kołowrotki z przednim hamulcem",
+            opis: "Kołowrotki z przednim hamulcem to rodzaj kołowrotków, ktore sluza do połowu ryb metodą spinningową. Kołowrotki z przednim hamulcem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z tylnym hamulcem. Kołowrotki z przednim hamulcem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z tylnym hamulcem. Kołowrotki z przednim hamulcem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z tylnym hamulcem. Kołowrotki z przednim hamulcem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z tylnym hamulcem.",
+            sklepy: [
+              {
+                path: "https://www.sklep-mietus.pl/241-kolowrotki-z-przednim-hamulcem",
+                name: "sklep-mietus.pl",
+              },
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Kolowrotki_Z-przednim-hamulcem-48612.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://sklepdrapieznik.pl/25-z-przednim-hamulcem",
+                name: "sklepdrapieznik.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/kolowrotki/przedni/1.jpg",
+              "./zdj/kolowrotki/przedni/2.jpg",
+              "./zdj/kolowrotki/przedni/3.jpg",
+            ],
+          },
+          2: {
+            nazwa: "Kołowrotki z tylnym hamulcem",
+            opis: "Kołowrotki z tylnym hamulcem to rodzaj kołowrotków, ktore sluza do połowu ryb metodą gruntową. Kołowrotki z tylnym hamulcem są zazwyczaj dłuższe i mniej elastyczne niż kołowrotki z przednim hamulcem. Kołowrotki z tylnym hamulcem są zazwyczaj dłuższe i mniej elastyczne niż kołowrotki z przednim hamulcem. Kołowrotki z tylnym hamulcem są zazwyczaj dłuższe i mniej elastyczne niż kołowrotki z przednim hamulcem. Kołowrotki z tylnym hamulcem są zazwyczaj dłuższe i mniej elastyczne niż kołowrotki z przednim hamulcem.",
+            sklepy: [
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Kolowrotki_Z-tylnym-hamulcem-48613.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://barduta.pl/pol_m_Kolowrotki_Z-tylnym-hamulcem-180.html",
+                name: "barduta.pl",
+              },
+              {
+                path: "https://sklepdrapieznik.pl/26-z-tylnym-hamulcem",
+                name: "sklepdrapieznik.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/kolowrotki/tylny/1.jpg",
+              "./zdj/kolowrotki/tylny/2.jpg",
+              "./zdj/kolowrotki/tylny/3.jpg",
+            ],
+          },
+          3: {
+            nazwa: "Kołowrotki z wolnym biegiem",
+            opis: "Kołowrotki z wolnym biegiem to rodzaj kołowrotków, ktore sluza do połowu ryb metodą spławikową. Kołowrotki z wolnym biegiem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z przednim hamulcem. Kołowrotki z wolnym biegiem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z przednim hamulcem. Kołowrotki z wolnym biegiem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z przednim hamulcem. Kołowrotki z wolnym biegiem są zazwyczaj krótsze i bardziej elastyczne niż kołowrotki z przednim hamulcem.",
+            sklepy: [
+              {
+                path: "https://sklepwedkarski.pl/pol_m_Kolowrotki_Z-wolnym-biegiem-48614.html",
+                name: "sklepwedkarski.pl",
+              },
+              {
+                path: "https://www.sklep-mietus.pl/243-kolowrotki-z-wolnym-biegiem?gad_source=1&gclid=CjwKCAiA_aGuBhACEiwAly57MbLWNLIuzfHS38Fm89pPq_uMGFlBjLVy47ThR_EPtNATjAX9UNvlixoCZc4QAvD_BwE",
+                name: "sklep-mietus.pl",
+              },
+              {
+                path: "https://skleprybka.pl/kategoria-produktu/kolowrotki/z-wolnym-biegiem",
+                name: "skleprybka.pl",
+              },
+            ],
+            zdjecia: [
+              "./zdj/kolowrotki/wolne/1.jpg",
+              "./zdj/kolowrotki/wolne/2.jpg",
+              "./zdj/kolowrotki/wolne/3.jpg",
+            ],
+          },
+        };
+        const content = document.getElementById("content");
+        content.innerHTML = `
+        <h2>${contentData[category].nazwa}</h2>
+        <p>${contentData[category].opis}</p>
+        <h3>Sklepy</h3>
+        <ul>
+          ${contentData[category].sklepy
+            .map(
+              (sklep) =>
+                `<li><a href="${sklep.path}" target="_blank">${sklep.name}</a></li>`
+            )
+            .join("")}
+        </ul>
+        <h3>Zdjęcia</h3>
+        <div class="imageGalery">
+          ${contentData[category].zdjecia
+            .map(
+              (zdjecie) =>
+                `<a href="${zdjecie}" target="_blank"><img src="${zdjecie}" alt="zdjecie" width="200" height="200" /></a>`
+            )
+            .join("")}
+        `;
+      });
+    </script>
+  </body>
+</html>
