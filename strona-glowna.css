@@ -34,3 +34,8 @@ main {
 option {
   text-align: center;
 }
+.btn-wst {
+	display:block;
+	width: calc(100% - 7%);
+	text-align:center;
+}

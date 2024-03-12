@@ -19,13 +19,9 @@ if (navContainer) {
     align-items: center;
     justify-content: space-between;
     width: 200px;
-    transition: transform 0.125s ease;
-    transform: translateX(-100%);
     z-index: 1000;
   }
-  nav.open {
-    transform: translateX(0);
-  }
+
   nav h2 {
     color: #fff;
     font-weight: 700;
@@ -82,6 +78,7 @@ if (navContainer) {
   .dropdown-content {
     display: none;
     position: absolute;
+    left: 150px;
     background-color: #f9f9f9;
     min-width: 160px;
     width: max-content;
@@ -102,10 +99,24 @@ if (navContainer) {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  .header {
+    background-color: #149fff;
+    box-shadow: 0 0 10px rgb(255 255 255 / 0.75);
+    margin-left: 200px;
+    height: 75px;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
   `;
   document.head.appendChild(style);
   navContainer.innerHTML = `
-  <nav id="navbar" class="open">
+  <header class="header">
+    Polski Związek Wędkarski - Województwo dolnośląskie
+  </header>
+  <nav id="navbar">
     <div>
       <h2>Nawigacja</h2>
       <div id="navbarLinks">
@@ -142,20 +153,5 @@ if (navContainer) {
       />
     </div>
   </nav>
-  <label id="navButton">
-    <input type="checkbox" id="navbarCheckbox" hidden/>
-    <span id="navButtonText">Otwórz</span>
-  </label>
   `;
 }
-const navbarCheckbox = document.getElementById("navbarCheckbox");
-const navbar = document.getElementById("navbar");
-const navButtonText = document.getElementById("navButtonText");
-navbar.classList.remove("open");
-
-navbarCheckbox.addEventListener("change", (e) => {
-  const isChecked = e.target.checked;
-  isChecked
-    ? (navbar.classList.add("open"), (navButtonText.textContent = "Zamknij"))
-    : (navbar.classList.remove("open"), (navButtonText.textContent = "Otwórz"));
-});

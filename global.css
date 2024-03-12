@@ -2,6 +2,9 @@
 html {
   color-scheme: dark;
 }
+main {
+  padding-left: 200px;
+}
 body {
   font-family: "Roboto", sans-serif;
   background-color: #141414;
